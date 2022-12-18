@@ -486,6 +486,12 @@
             return this;
         }
 
+        public ThumborImage Focal(int left, int top, int right, int bottom)
+        {
+            ReplaceOrAddFilter("focal", $"{left}x{top}:{right}x{bottom}");
+            return this;
+        }
+
         /// <summary>
         /// Sets the gifv filter for the image. See https://github.com/thumbor/thumbor/wiki/GifV for details.
         /// Can be called multiple times with the last call overriding all previous calls.
