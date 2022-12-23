@@ -158,6 +158,22 @@
             this.watermarks.Add(string.Format("watermark({0},{1},{2},{3})", watermarkImageUrl, right, down, transparency));
             return this;
         }
+        
+        /// <summary>
+        /// Adds a watermark image to this image. The watermark image can be the output of another thumbor image. See https://github.com/thumbor/thumbor/wiki/Watermark for details.
+        /// Can be called multiple times with each watermark being included on the base image. The last added watermark 
+        /// will overlay all previous watermarks if there is an overlap.
+        /// </summary>
+        /// <param name="watermarkImageUrl">URL to the image to use as a watermark. Can be the output of another thumbor image.</param>
+        /// <param name="right">How many pixels right the watermark should be / position such as center.</param>
+        /// <param name="down">How many pixels down the watermark should be.</param>
+        /// <param name="transparency">Watermark image transparency 0 = opaque - 100 fully transparent</param>
+        /// <returns>The current thumbor image object.</returns>
+        public ThumborImage Watermark(string watermarkImageUrl, string right, int down, int transparency)
+        {
+            this.watermarks.Add(string.Format("watermark({0},{1},{2},{3})", watermarkImageUrl, right, down, transparency));
+            return this;
+        }
 
         /// <summary>
         /// Sets the fill filter on this image.
