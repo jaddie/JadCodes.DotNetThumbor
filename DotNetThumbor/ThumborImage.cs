@@ -152,10 +152,12 @@
         /// <param name="right">How many pixels right the watermark should be.</param>
         /// <param name="down">How many pixels down the watermark should be.</param>
         /// <param name="transparency">Watermark image transparency 0 = opaque - 100 fully transparent</param>
+        /// <param name="widthRatio">Watermark image width ratio in percentage</param>
+        /// <param name="heightRatio">Watermark image height ratio in percentage</param>
         /// <returns>The current thumbor image object.</returns>
-        public ThumborImage Watermark(string watermarkImageUrl, int right, int down, int transparency)
+        public ThumborImage Watermark(string watermarkImageUrl, int right, int down, int transparency,int widthRatio,int heightRatio)
         {
-            this.watermarks.Add(string.Format("watermark({0},{1},{2},{3})", watermarkImageUrl, right, down, transparency));
+            this.watermarks.Add(string.Format("watermark({0},{1},{2},{3},{4},{5})", watermarkImageUrl, right, down, transparency,widthRatio,heightRatio));
             return this;
         }
         
@@ -168,10 +170,12 @@
         /// <param name="right">How many pixels right the watermark should be / position such as center.</param>
         /// <param name="down">How many pixels down the watermark should be.</param>
         /// <param name="transparency">Watermark image transparency 0 = opaque - 100 fully transparent</param>
+        /// <param name="widthRatio">Watermark image width ratio in percentage</param>
+        /// <param name="heightRatio">Watermark image height ratio in percentage</param>
         /// <returns>The current thumbor image object.</returns>
-        public ThumborImage Watermark(string watermarkImageUrl, string right, int down, int transparency)
+        public ThumborImage Watermark(string watermarkImageUrl, string right, int down, int transparency,int widthRatio,int heightRatio)
         {
-            this.watermarks.Add(string.Format("watermark({0},{1},{2},{3})", watermarkImageUrl, right, down, transparency));
+            this.watermarks.Add(string.Format("watermark({0},{1},{2},{3},{4},{5})", watermarkImageUrl, right, down, transparency,widthRatio,heightRatio));
             return this;
         }
 
