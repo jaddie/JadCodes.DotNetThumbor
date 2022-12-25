@@ -155,10 +155,10 @@
         /// <param name="widthRatio">Watermark image width ratio in percentage</param>
         /// <param name="heightRatio">Watermark image height ratio in percentage</param>
         /// <returns>The current thumbor image object.</returns>
-        public ThumborImage Watermark(string watermarkImageUrl, int right, int down, int transparency,int widthRatio,int heightRatio)
+        public ThumborImage Watermark(string watermarkImageUrl, int right, int down, int transparency,int widthRatio = 0,int heightRatio = 0)
         {
-            this.watermarks.Add(string.Format("watermark({0},{1},{2},{3},{4},{5})", watermarkImageUrl, right, down, transparency,widthRatio,heightRatio));
-            return this;
+            return Watermark(watermarkImageUrl, right.ToString(), down, transparency, widthRatio == 0 ? "none" : widthRatio.ToString(),
+                heightRatio == 0 ? "none" : heightRatio.ToString());
         }
         
         /// <summary>
@@ -173,9 +173,9 @@
         /// <param name="widthRatio">Watermark image width ratio in percentage</param>
         /// <param name="heightRatio">Watermark image height ratio in percentage</param>
         /// <returns>The current thumbor image object.</returns>
-        public ThumborImage Watermark(string watermarkImageUrl, string right, int down, int transparency,int widthRatio,int heightRatio)
+        public ThumborImage Watermark(string watermarkImageUrl, string right, int down, int transparency,string widthRatio = "none",string heightRatio = "none")
         {
-            this.watermarks.Add(string.Format("watermark({0},{1},{2},{3},{4},{5})", watermarkImageUrl, right, down, transparency,widthRatio,heightRatio));
+            watermarks.Add($"watermark({watermarkImageUrl},{right},{down},{transparency},{widthRatio},{heightRatio})");
             return this;
         }
 
