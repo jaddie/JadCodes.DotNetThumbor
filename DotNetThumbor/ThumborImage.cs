@@ -162,6 +162,17 @@
         }
         
         /// <summary>
+        /// Imagor specific utility filter, will make the response be sent as an attachment header with the filename used from the file / present a save-as dialog
+        /// </summary>
+        /// <param name="filename">An optional filename to use instead of the original image source</param>
+        /// <returns></returns>
+        public ThumborImage Attachment(string filename)
+        {
+            this.ReplaceOrAddFilter("attachment", filename);
+            return this;
+        }
+        
+        /// <summary>
         /// Adds a watermark image to this image. The watermark image can be the output of another thumbor image. See https://github.com/thumbor/thumbor/wiki/Watermark for details.
         /// Can be called multiple times with each watermark being included on the base image. The last added watermark 
         /// will overlay all previous watermarks if there is an overlap.
