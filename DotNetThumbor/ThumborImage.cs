@@ -160,13 +160,13 @@
             return Watermark(watermarkImageUrl, right.ToString(), down, transparency, widthRatio == 0 ? "none" : widthRatio.ToString(),
                 heightRatio == 0 ? "none" : heightRatio.ToString());
         }
-        
+
         /// <summary>
         /// Imagor specific utility filter, will make the response be sent as an attachment header with the filename used from the file / present a save-as dialog
         /// </summary>
         /// <param name="filename">An optional filename to use instead of the original image source</param>
         /// <returns></returns>
-        public ThumborImage Attachment(string filename)
+        public ThumborImage Attachment(string filename = "")
         {
             this.ReplaceOrAddFilter("attachment", filename);
             return this;
